@@ -1,27 +1,26 @@
-broker:
-  image: 'prologic/mosquitto:latest'
-  ports:
-    - '1883:1883'
-database:
-  image: 'tutum/mongodb:latest'
-  environment:
-    - MONGODB_PASS={{** CHANGE ME **}}
+version: "3.7"
 
-# Uncomment if you want to expose the MongoDB port directly
-# If you're using the API interface (highly recommended) then you can 
-# safely leave this commented out 
-#  ports:
-#    - '27017:27017'
+services:
+  mongo:
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: {{** CHANGE ME **}}
+    image: 'mongo'
+    volumes:
+      - db:/data/db
 
-nightscout:
-  image: 'nightscout/cgm-remote-monitor-development:latest'
-  environment:
-    - API_SECRET={{** CHANGE ME **}}
-    - 'MONGO_CONNECTION=mongodb://admin:{{** CHANGE ME **}}@database/admin'
-    - 'MQTT_MONITOR=mqtt://{{** CHANGE ME **}}@broker'
-    - PORT=1337
-  links:
-    - broker
-    - database
-  ports:
-    - '1337:1337'
+  app:
+    depends_on:
+      - mongo
+    environment:
+      API_SECRET: {{** CHANGE ME **}}
+      BASE_URL: {{** CHANGE ME **}}
+      MONGO_CONNECTION: "mongodb://admin:{{** CHANGE ME **}}@mongo/admin"
+    image: gabe565/nightscout
+    links:
+      - mongo
+    ports:
+      - 1337:1337
+
+volumes:
+  db:
