@@ -19,6 +19,6 @@ RUN set -x \
 EXPOSE 1337
 
 # Nightscout binds to HOSTNAME, have to bind to 0.0.0.0 instead of an IP address
-ENV HOSTNAME 0.0.0.0
+ENV HOSTNAME ::
 
 CMD ["node", "server.js"]
