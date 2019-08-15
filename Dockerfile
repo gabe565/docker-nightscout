@@ -1,20 +1,28 @@
-FROM node:8-alpine
+FROM node:10-alpine
 
 ARG NIGHTSCOUT_REPO_PATH=nightscout/cgm-remote-monitor
 
-ARG NIGHTSCOUT_VERSION=0.11.1
-ENV NIGHTSCOUT_VERSION=$NIGHTSCOUT_VERSION
+ARG NIGHTSCOUT_RELEASE=0.12.3
+ENV NIGHTSCOUT_RELEASE=$NIGHTSCOUT_RELEASE
 
 WORKDIR /app
 
 RUN set -x \
-    && apk add --no-cache tar \
-    && wget -q -O release.tar.gz "https://github.com/${NIGHTSCOUT_REPO_PATH}/archive/${NIGHTSCOUT_VERSION}.tar.gz" \
-    && tar -xzf release.tar.gz --strip-components=1 \
-    && rm -rf release.tar.gz .git \
-    && npm install \
+    && apk add --no-cache --virtual .build-deps \
+        g++ \
+        git \
+        make \
+        python \
+    && git clone -q \
+        --config advice.detachedHead=false \
+        --branch "$NIGHTSCOUT_RELEASE" \
+        --depth 1 \
+         "https://github.com/$NIGHTSCOUT_REPO_PATH.git" . \
+    && rm -rf \
+        .git \
+    && npm ci \
     && npm run postinstall \
-    && apk del tar
+    && apk del .build-deps
 
 EXPOSE 1337
 
