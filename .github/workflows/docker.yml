@@ -44,6 +44,8 @@ jobs:
           tags: |
             ${{ env.image }}:${{ env.nightscout_release }}
             ${{ env.image }}:latest
+          build-args: |
+            NIGHTSCOUT_RELEASE=${{ env.nightscout_release }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,mode=max,dest=/tmp/.buildx-cache-new
 
