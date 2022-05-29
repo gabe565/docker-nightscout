@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:14-alpine
 
 ARG NIGHTSCOUT_REPO_PATH=nightscout/cgm-remote-monitor
 
