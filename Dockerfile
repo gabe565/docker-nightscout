@@ -12,7 +12,7 @@ RUN set -x \
         g++ \
         git \
         make \
-        python \
+        python3 \
     && git clone -q \
         --config advice.detachedHead=false \
         --branch "$NIGHTSCOUT_RELEASE" \
