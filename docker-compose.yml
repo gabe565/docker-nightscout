@@ -16,7 +16,7 @@ services:
       API_SECRET: {{** CHANGE ME **}}
       BASE_URL: {{** CHANGE ME **}}
       MONGO_CONNECTION: "mongodb://admin:{{** CHANGE ME **}}@mongo/admin"
-    image: gabe565/nightscout
+    image: ghcr.io/gabe565/nightscout
     links:
       - mongo
     ports:

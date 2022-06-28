@@ -23,6 +23,7 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: |
+            ghcr.io/${{ env.image }}
             ${{ env.image }}
           tags: |
             type=raw,priority=1000,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'master') }}
