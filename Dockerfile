@@ -25,6 +25,7 @@ RUN set -x \
     && npm run postinstall
 
 FROM node:$NODE_VERSION-alpine
+LABEL org.opencontainers.image.source="https://github.com/gabe565/docker-nightscout"
 
 COPY --from=builder /app /app
 
