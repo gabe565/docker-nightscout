@@ -26,6 +26,7 @@ RUN set -x \
 
 FROM node:$NODE_VERSION-alpine
 LABEL org.opencontainers.image.source="https://github.com/gabe565/docker-nightscout"
+WORKDIR /app
 
 COPY --from=builder /app /app
 
