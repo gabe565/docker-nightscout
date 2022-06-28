@@ -1,4 +1,6 @@
-FROM node:14-alpine
+ARG NODE_VERSION=14
+
+FROM --platform=$BUILDPLATFORM node:$NODE_VERSION-alpine as builder
 
 ARG NIGHTSCOUT_REPO_PATH=nightscout/cgm-remote-monitor
 
@@ -23,6 +25,10 @@ RUN set -x \
     && npm ci \
     && npm run postinstall \
     && apk del .build-deps
+
+FROM node:$NODE_VERSION-alpine
+
+COPY --from=builder /app /app
 
 EXPOSE 1337
 
