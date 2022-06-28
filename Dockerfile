@@ -9,22 +9,20 @@ ENV NIGHTSCOUT_RELEASE=$NIGHTSCOUT_RELEASE
 
 WORKDIR /app
 
-RUN set -x \
-    && apk add --no-cache --virtual .build-deps \
+RUN apk add --no-cache \
         g++ \
         git \
         make \
-        python3 \
+        python3
+
+RUN set -x \
     && git clone -q \
         --config advice.detachedHead=false \
         --branch "$NIGHTSCOUT_RELEASE" \
         --depth 1 \
          "https://github.com/$NIGHTSCOUT_REPO_PATH.git" . \
-    && rm -rf \
-        .git \
     && npm ci \
-    && npm run postinstall \
-    && apk del .build-deps
+    && npm run postinstall
 
 FROM node:$NODE_VERSION-alpine
 
