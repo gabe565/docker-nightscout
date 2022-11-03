@@ -8,7 +8,7 @@ on:
 
 env:
   image: gabe565/nightscout
-  nightscout_release: "14.2.5"
+  nightscout_release: "14.2.6"
 
 jobs:
   build:
