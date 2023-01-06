@@ -9,6 +9,16 @@
     "{{datasource}}",
     "{{updateType}}"
   ],
+  "regexManagers": [
+    {
+      "fileMatch": ["Dockerfile", "^\\.github/workflows/"],
+      "matchStrings": [
+        "\\s*NIGHTSCOUT_REPO: +(?<depName>.+)\\n\\s*NIGHTSCOUT_REF: +(?<currentValue>.+)",
+        "ARG +NIGHTSCOUT_REPO=(?<depName>.+)\\nARG +NIGHTSCOUT_REF=(?<currentValue>.+)"
+      ],
+      "datasourceTemplate": "github-releases"
+    }
+  ],
   "commitMessagePrefix": ":arrow_up:",
   "packageRules": [
     {
