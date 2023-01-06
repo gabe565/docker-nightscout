@@ -1,8 +1,7 @@
 name: Docker Build
 
 on:
-  push:
-    branches: master
+  push: {}
 
 env:
   image: gabe565/nightscout
