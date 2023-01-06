@@ -1,7 +1,7 @@
 ARG NIGHTSCOUT_REPO=nightscout/cgm-remote-monitor
 ARG NIGHTSCOUT_REF=14.2.6
 
-FROM --platform=$BUILDPLATFORM node:14-alpine as builder
+FROM --platform=$BUILDPLATFORM node:18-alpine as builder
 WORKDIR /app
 
 RUN apk add --no-cache \
@@ -21,7 +21,7 @@ RUN set -x \
     && npm ci \
     && npm run postinstall
 
-FROM node:14-alpine
+FROM node:18-alpine
 LABEL org.opencontainers.image.source="https://github.com/gabe565/docker-nightscout"
 WORKDIR /app
 
