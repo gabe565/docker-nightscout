@@ -4,7 +4,8 @@ on:
   push: {}
 
 env:
-  nightscout_release: "14.2.6"
+  NIGHTSCOUT_REPO: nightscout/cgm-remote-monitor
+  NIGHTSCOUT_REF: 14.2.6
 
 jobs:
   build:
@@ -51,6 +52,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
-            NIGHTSCOUT_RELEASE=${{ env.nightscout_release }}
+            NIGHTSCOUT_REPO=${{ env.NIGHTSCOUT_REPO }}
+            NIGHTSCOUT_REF=${{ env.NIGHTSCOUT_REF }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
