@@ -4,7 +4,7 @@ services:
   mongo:
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: {{** CHANGE ME **}}
+      MONGO_INITDB_ROOT_PASSWORD: changeme
     image: 'mongo'
     volumes:
       - db:/data/db
@@ -13,9 +13,9 @@ services:
     depends_on:
       - mongo
     environment:
-      API_SECRET: {{** CHANGE ME **}}
-      BASE_URL: {{** CHANGE ME **}}
-      MONGO_CONNECTION: "mongodb://admin:{{** CHANGE ME **}}@mongo/admin"
+      API_SECRET: changeme
+      BASE_URL: changeme
+      MONGO_CONNECTION: "mongodb://admin:changeme@mongo/admin"
     image: ghcr.io/gabe565/nightscout
     links:
       - mongo
