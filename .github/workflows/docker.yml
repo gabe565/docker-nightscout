@@ -4,7 +4,6 @@ on:
   push: {}
 
 env:
-  image: gabe565/nightscout
   nightscout_release: "14.2.6"
 
 jobs:
@@ -20,7 +19,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/${{ env.image }}
+            ghcr.io/gabe565/nightscout
           tags: |
             type=raw,priority=1000,value=latest,enable=${{ github.ref == 'refs/heads/master' }}
             type=semver,pattern={{version}},value=${{ env.nightscout_release }},enable=${{ github.ref == 'refs/heads/master' }}
