@@ -42,6 +42,10 @@
       "enabled": false
     },
     {
+      "matchPackageNames": ["node"],
+      "allowedVersions": "<= 16"
+    },
+    {
       "matchManagers": ["github-actions"],
       "automerge": true
     }
