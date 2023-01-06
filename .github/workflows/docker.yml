@@ -22,10 +22,10 @@ jobs:
           images: |
             ghcr.io/gabe565/nightscout
           tags: |
-            type=raw,priority=1000,value=latest,enable=${{ github.ref == 'refs/heads/master' }}
-            type=semver,pattern={{version}},value=${{ env.NIGHTSCOUT_REF }},enable=${{ github.ref == 'refs/heads/master' }}
-            type=semver,pattern={{major}}.{{minor}},value=${{ env.NIGHTSCOUT_REF }},enable=${{ github.ref == 'refs/heads/master' }}
-            type=semver,pattern={{major}},value=${{ env.NIGHTSCOUT_REF }},enable=${{ github.ref == 'refs/heads/master' }}
+            type=raw,priority=1000,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
+            type=semver,pattern={{version}},value=${{ env.NIGHTSCOUT_REF }},enable=${{ github.ref == 'refs/heads/main' }}
+            type=semver,pattern={{major}}.{{minor}},value=${{ env.NIGHTSCOUT_REF }},enable=${{ github.ref == 'refs/heads/main' }}
+            type=semver,pattern={{major}},value=${{ env.NIGHTSCOUT_REF }},enable=${{ github.ref == 'refs/heads/main' }}
             type=ref,event=branch
             type=sha
 
