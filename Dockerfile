@@ -1,3 +1,5 @@
+#syntax=docker/dockerfile:1.4
+
 ARG NIGHTSCOUT_REPO=nightscout/cgm-remote-monitor
 ARG NIGHTSCOUT_REF=14.2.6
 
@@ -12,14 +14,16 @@ RUN apk add --no-cache \
 
 ARG NIGHTSCOUT_REPO
 ARG NIGHTSCOUT_REF
-RUN set -x \
-    && git clone -q \
-        --config advice.detachedHead=false \
-        --branch "$NIGHTSCOUT_REF" \
-        --depth 1 \
-         "https://github.com/$NIGHTSCOUT_REPO.git" . \
-    && npm ci \
-    && npm run postinstall
+RUN <<EOT
+  set -eux
+  git clone -q \
+    --config advice.detachedHead=false \
+    --branch "$NIGHTSCOUT_REF" \
+    --depth 1 \
+     "https://github.com/$NIGHTSCOUT_REPO.git" .
+  npm ci
+  npm run postinstall
+EOT
 
 FROM node:16-alpine
 LABEL org.opencontainers.image.source="https://github.com/gabe565/docker-nightscout"
