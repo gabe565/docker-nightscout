@@ -25,6 +25,8 @@ RUN <<EOT
   npm run postinstall
 EOT
 
+RUN mkdir -p tmp && chown -R node:node tmp
+
 FROM node:16-alpine
 LABEL org.opencontainers.image.source="https://github.com/gabe565/docker-nightscout"
 WORKDIR /app
@@ -35,5 +37,7 @@ EXPOSE 1337
 
 # Nightscout binds to HOSTNAME, have to bind to 0.0.0.0 instead of an IP address
 ENV HOSTNAME ::
+
+USER node
 
 CMD ["node", "server.js"]
