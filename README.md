@@ -1,5 +1,7 @@
 # Nightscout Containers
 
+[![Build](https://github.com/gabe565/docker-nightscout/actions/workflows/build.yml/badge.svg)](https://github.com/gabe565/docker-nightscout/actions/workflows/build.yml)
+
 This repo builds container images for [Nightscout](https://github.com/nightscout/cgm-remote-monitor).
 
 Release tags are automatically updated by Renovate bot, so new Nightscout releases will be available in this repository within a few hours.
