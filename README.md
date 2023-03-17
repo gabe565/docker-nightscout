@@ -12,7 +12,7 @@ Release tags are automatically updated by Renovate bot, so new Nightscout releas
 
 ### Docker
 
-For Docker, I'd suggest using the [`docker-compose.yml`](./docker-compose.yml) in this repository.
+For Docker, I'd suggest using the [`docker-compose.yaml`](./docker-compose.yaml) in this repository.
 
 ### Kubernetes
 

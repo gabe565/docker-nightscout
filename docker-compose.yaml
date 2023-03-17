@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  app:
+    image: ghcr.io/gabe565/nightscout
+    environment:
+      API_SECRET: changeme
+      BASE_URL: changeme
+      MONGO_CONNECTION: "mongodb://admin:changeme@mongo/admin"
+    depends_on:
+      - mongo
+    ports:
+      - "1337:1337"
+
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: changeme
+    volumes:
+      - db:/data/db
+
+volumes:
+  db: {}
