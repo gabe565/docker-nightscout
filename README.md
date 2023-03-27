@@ -18,4 +18,4 @@ For Docker, I'd suggest copying the [`docker-compose.yaml`](./docker-compose.yam
 
 ### Kubernetes
 
-I'm currently using the [k8s-at-home/nightscout](https://github.com/k8s-at-home/charts/tree/master/charts/stable/nightscout) Helm chart. k8s-at-home has deprecated their charts repository, so I will release my own chart and update this documentation soon.
+I have built a Helm chart for Kubernetes deployments. See [charts.gabe565.com](https://charts.gabe565.com/charts/nightscout/) or [gabe565/charts](https://github.com/gabe565/charts/tree/main/charts/nightscout) for details.
