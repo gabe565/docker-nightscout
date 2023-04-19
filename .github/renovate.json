@@ -5,10 +5,11 @@
   ],
   "regexManagers": [
     {
-      "fileMatch": ["Dockerfile", "^\\.github/workflows/"],
+      "fileMatch": ["Dockerfile", "^\\.github/workflows/", "README.md"],
       "matchStrings": [
         "\\s*NIGHTSCOUT_REPO: +(?<depName>.+)\\n\\s*NIGHTSCOUT_REF: +(?<currentValue>.+)",
-        "ARG +NIGHTSCOUT_REPO=(?<depName>.+)\\nARG +NIGHTSCOUT_REF=(?<currentValue>.+)"
+        "ARG +NIGHTSCOUT_REPO=(?<depName>.+)\\nARG +NIGHTSCOUT_REF=(?<currentValue>.+)",
+        "<!--renovate repo=(?<depName>.+) -->\\n.*\\/Version-v(?<currentValue>.+?)-"
       ],
       "datasourceTemplate": "github-releases"
     }
