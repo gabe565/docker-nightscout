@@ -11,7 +11,7 @@
         "ARG +NIGHTSCOUT_REPO=(?<depName>.+)\\nARG +NIGHTSCOUT_REF=(?<currentValue>.+)",
         "<!--renovate repo=(?<depName>.+) -->\\n.*\\/Version-v(?<currentValue>.+?)-"
       ],
-      "datasourceTemplate": "github-releases"
+      "datasourceTemplate": "github-tags"
     }
   ],
   "packageRules": [
