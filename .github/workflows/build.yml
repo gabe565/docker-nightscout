@@ -30,6 +30,14 @@ jobs:
             type=semver,pattern={{major}}.{{minor}},value=${{ env.NIGHTSCOUT_REF }},enable=${{ github.ref == 'refs/heads/main' }}
             type=semver,pattern={{major}},value=${{ env.NIGHTSCOUT_REF }},enable=${{ github.ref == 'refs/heads/main' }}
             type=ref,event=branch
+          labels: |
+            org.opencontainers.image.title=Nightscout
+            maintainer=gabe565
+            org.opencontainers.image.vendor=gabe565
+            org.opencontainers.image.description=Web-based CGM (Continuous Glucose Monitor) to allow multiple caregivers to remotely view a patient's glucose data in real time
+            org.opencontainers.image.source=https://github.com/${{ env.NIGHTSCOUT_REPO }}
+            org.opencontainers.image.version=${{ env.NIGHTSCOUT_REF }}
+            org.opencontainers.image.licenses=AGPL-3.0
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
