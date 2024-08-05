@@ -1,4 +1,4 @@
-#syntax=docker/dockerfile:1.8
+#syntax=docker/dockerfile:1.9
 
 ARG NIGHTSCOUT_REPO=nightscout/cgm-remote-monitor
 ARG NIGHTSCOUT_REF=15.0.0
