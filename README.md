@@ -16,7 +16,7 @@ Release tags are automatically updated by Renovate bot, so new Nightscout releas
 
 ### Docker
 
-For Docker, I'd suggest copying the [`docker-compose.yaml`](./docker-compose.yaml) in this repository, then adding any environment variables you desire from [Nightscout's documentation](https://github.com/nightscout/cgm-remote-monitor#environment).
+For Docker, I'd suggest copying the [`compose.yaml`](./compose.yaml) in this repository, then adding any environment variables you desire from [Nightscout's documentation](https://github.com/nightscout/cgm-remote-monitor#environment).
 
 ### Kubernetes
 
