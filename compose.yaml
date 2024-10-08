@@ -1,8 +1,7 @@
-version: "3.9"
-
 services:
   app:
     image: ghcr.io/gabe565/nightscout
+    build: .
     environment:
       API_SECRET: changeme
       BASE_URL: changeme

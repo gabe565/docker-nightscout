@@ -4,4 +4,4 @@
 .gitignore
 Dockerfile
 README.md
-docker-compose.yaml
+compose.yaml
