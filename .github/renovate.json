@@ -16,10 +16,6 @@
   ],
   "packageRules": [
     {
-      "matchPackageNames": ["node"],
-      "allowedVersions": "<= 16"
-    },
-    {
       "matchPackageNames": ["nightscout/cgm-remote-monitor"],
       "automerge": true
     }
