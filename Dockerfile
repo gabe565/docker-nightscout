@@ -40,4 +40,4 @@ ENV HOSTNAME ::
 
 USER node
 
-CMD ["node", "server.js"]
+CMD ["node", "lib/server/server.js"]
