@@ -31,6 +31,8 @@ FROM node:20-alpine
 LABEL org.opencontainers.image.source="https://github.com/gabe565/docker-nightscout"
 WORKDIR /app
 
+RUN apk add --no-cache tini
+
 COPY --from=builder /app /app
 
 EXPOSE 1337
@@ -40,4 +42,4 @@ ENV HOSTNAME ::
 
 USER node
 
-CMD ["node", "lib/server/server.js"]
+CMD ["tini", "--", "node", "lib/server/server.js"]
