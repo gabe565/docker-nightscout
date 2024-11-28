@@ -5,7 +5,7 @@ on:
 
 env:
   NIGHTSCOUT_REPO: nightscout/cgm-remote-monitor
-  NIGHTSCOUT_REF: 15.0.0
+  NIGHTSCOUT_REF: 15.0.2
 
 jobs:
   build:
