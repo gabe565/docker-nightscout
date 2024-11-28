@@ -1,7 +1,7 @@
 # Nightscout Containers
 
 <!--renovate repo=nightscout/cgm-remote-monitor -->
-[![Version](https://img.shields.io/badge/Version-v15.0.0-informational?style=flat)](https://github.com/gabe565/docker-nightscout/pkgs/container/nightscout)
+[![Version](https://img.shields.io/badge/Version-v15.0.2-informational?style=flat)](https://github.com/gabe565/docker-nightscout/pkgs/container/nightscout)
 [![Build](https://github.com/gabe565/docker-nightscout/actions/workflows/build.yml/badge.svg)](https://github.com/gabe565/docker-nightscout/actions/workflows/build.yml)
 
 This repo builds container images for [Nightscout](https://github.com/nightscout/cgm-remote-monitor).
