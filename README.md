@@ -12,6 +12,14 @@ Release tags are automatically updated by Renovate bot, so new Nightscout releas
 
 - [ghcr.io/gabe565/nightscout](https://github.com/gabe565/docker-nightscout/pkgs/container/nightscout)
 
+## Flavors
+
+### Base
+The base flavor does not make any changes to the Nightscout source code.
+
+### WebSocket
+The WebSocket flavor configures the Nightscout client to prefer WebSocket connections instead of HTTP long-polling.
+
 ## Deployment
 
 ### Docker
