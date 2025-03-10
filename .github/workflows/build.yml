@@ -9,11 +9,18 @@ env:
 
 jobs:
   build:
-    name: Build Image
+    name: Build (${{ matrix.flavor }})
     runs-on: ubuntu-24.04
     permissions:
       contents: read
       packages: write
+    strategy:
+      matrix:
+        include:
+          - suffix: ''
+            flavor: base
+          - suffix: -websocket
+            flavor: websocket
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,8 +29,9 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: |
-            ghcr.io/gabe565/nightscout
+          flavor: |
+            suffix=${{ matrix.suffix }},onlatest=true
+          images: ghcr.io/gabe565/nightscout
           tags: |
             type=raw,priority=1000,value=latest
             type=semver,pattern={{version}},value=${{ env.NIGHTSCOUT_REF }}
@@ -63,5 +71,6 @@ jobs:
           build-args: |
             NIGHTSCOUT_REPO=${{ env.NIGHTSCOUT_REPO }}
             NIGHTSCOUT_REF=${{ env.NIGHTSCOUT_REF }}
+            FLAVOR=${{ matrix.flavor }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
