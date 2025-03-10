@@ -6,11 +6,7 @@ ARG NIGHTSCOUT_REF=15.0.2
 FROM --platform=$BUILDPLATFORM node:20-alpine AS builder
 WORKDIR /app
 
-RUN apk add --no-cache \
-        g++ \
-        git \
-        make \
-        python3
+RUN apk add --no-cache g++ git make python3
 
 ARG NIGHTSCOUT_REPO
 ARG NIGHTSCOUT_REF
