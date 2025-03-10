@@ -3,7 +3,7 @@
 ARG NIGHTSCOUT_REPO=nightscout/cgm-remote-monitor
 ARG NIGHTSCOUT_REF=15.0.2
 
-FROM --platform=$BUILDPLATFORM node:20-alpine as builder
+FROM --platform=$BUILDPLATFORM node:20-alpine AS builder
 WORKDIR /app
 
 RUN apk add --no-cache \
@@ -40,7 +40,7 @@ COPY --from=builder /app /app
 EXPOSE 1337
 
 # Nightscout binds to HOSTNAME, have to bind to 0.0.0.0 instead of an IP address
-ENV HOSTNAME ::
+ENV HOSTNAME=::
 
 USER node
 
