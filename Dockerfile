@@ -21,6 +21,7 @@ RUN <<EOT
     --branch "$NIGHTSCOUT_REF" \
     --depth 1 \
      "https://github.com/$NIGHTSCOUT_REPO.git" .
+  rm -rf .git
   npm ci
   npm run postinstall
 
