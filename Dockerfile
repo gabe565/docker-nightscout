@@ -23,9 +23,10 @@ RUN <<EOT
      "https://github.com/$NIGHTSCOUT_REPO.git" .
   npm ci
   npm run postinstall
-EOT
 
-RUN mkdir -p tmp && chown -R node:node tmp
+  mkdir -p tmp
+  chown -R node:node tmp
+EOT
 
 FROM node:20-alpine
 LABEL org.opencontainers.image.source="https://github.com/gabe565/docker-nightscout"
