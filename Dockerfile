@@ -19,7 +19,6 @@ RUN <<EOT
      "https://github.com/$NIGHTSCOUT_REPO.git" .
   rm -rf .git
   npm ci
-  npm run postinstall
 
   mkdir -p tmp
   chown -R node:node tmp
