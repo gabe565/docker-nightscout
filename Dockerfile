@@ -4,7 +4,7 @@ ARG NIGHTSCOUT_REPO=nightscout/cgm-remote-monitor
 ARG NIGHTSCOUT_REF=15.0.2
 ARG FLAVOR=base
 
-FROM --platform=$BUILDPLATFORM node:20-alpine AS nightscout-base
+FROM --platform=$BUILDPLATFORM node:22-alpine AS nightscout-base
 WORKDIR /app
 
 RUN apk add --no-cache g++ git make python3
@@ -30,7 +30,7 @@ RUN sed -i 's/\["polling"]/["websocket", "polling"]/' lib/client/index.js
 FROM --platform=$BUILDPLATFORM nightscout-$FLAVOR AS nightscout
 RUN npm ci
 
-FROM node:20-alpine
+FROM node:22-alpine
 LABEL org.opencontainers.image.source="https://github.com/gabe565/docker-nightscout"
 WORKDIR /app
 
