@@ -8,7 +8,7 @@ concurrency:
 
 env:
   NIGHTSCOUT_REPO: nightscout/cgm-remote-monitor
-  NIGHTSCOUT_REF: 15.0.3
+  NIGHTSCOUT_REF: v15.0.6
 
 jobs:
   build:
