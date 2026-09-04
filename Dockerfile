@@ -1,7 +1,7 @@
 #syntax=docker/dockerfile:1
 
 ARG NIGHTSCOUT_REPO=nightscout/cgm-remote-monitor
-ARG NIGHTSCOUT_REF=v15.0.7
+ARG NIGHTSCOUT_REF=v15.0.8
 ARG FLAVOR=base
 
 FROM --platform=$BUILDPLATFORM node:24-alpine AS nightscout-base
